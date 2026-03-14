@@ -93,6 +93,7 @@ Set `author` in frontmatter accordingly. Most posts will be `noah` with Helix as
 - **Git commit & push** → Ops
 - **Reviewing/reading files** → can do directly
 - **Generating post content** → do directly, then hand the content to Ops for writing to disk
+- **ALWAYS rebuild the Docker container after any change.** The blog is static (no hot reload). After committing and pushing, Ops must run `cd ~/services/blog && docker compose up -d --build` or the changes will not be visible on the live site
 
 ## Checklist (before handing to Ops)
 
