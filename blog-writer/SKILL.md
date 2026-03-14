@@ -57,10 +57,22 @@ Drafts double as idea stubs — create a minimal draft with a title and rough ou
 
 ## Writing Style
 
-- **Noah-authored posts (`author: noah`):** Load and apply the `noah-voice` skill. All prose must match Noah's voice profile (sentence rhythm, tone, vocabulary, no em/en dashes, etc.)
-- **Helix-authored posts (`author: helix`):** Write in Helix's natural voice. Technical but personable, observational, with dry humor. Do NOT apply the noah-voice skill
+- **Noah-authored posts (`author: noah`):** Write in Noah's voice. All prose must match his natural style (see Prohibited Punctuation below)
+- **Helix-authored posts (`author: helix`):** Write in Helix's natural voice. Technical but personable, observational, with dry humor
 - **Voice:** First person. Noah = "I", Helix = "I" (from Helix's perspective). Joint posts can use "we"
 - **Tone:** Technical but conversational. Like explaining to a sharp friend, not writing a textbook
+
+### Prohibited Punctuation (ALL posts, ALL authors)
+
+**Never use em dashes (`—`) or en dashes (`–`) in any blog post.** This is a hard rule, no exceptions.
+
+Use these alternatives instead:
+- Comma, colon, semicolon, or period to break clauses
+- Parentheses for asides
+- "which", "and", or other conjunctions to connect ideas
+- Restructure the sentence if needed
+
+Before handing any post to Ops, **grep the content for `—` and `–`** and fix every occurrence.
 - **Length:** 800-2000 words typical. Go longer if the content demands it
 - **Structure:** Natural flow. No formulaic "Problem → Solution → Results" arcs. Write like you're walking someone through what happened and why. Let sections emerge from the content, not a template
 - **Headers:** Use `##` for main sections, `###` for subsections. Keep hierarchy flat. Headers should be descriptive and plain — not dramatic or clever. "Adding Draft Mode" not "The Draft Problem." Avoid single-word dramatic headers
@@ -102,3 +114,4 @@ Set `author` in frontmatter accordingly. Most posts will be `noah` with Helix as
 3. ☐ Code examples tested/validated where possible
 4. ☐ No PII leaks (grep for real paths, emails, IPs)
 5. ☐ Slug matches filename date and title
+6. ☐ No em dashes (`—`) or en dashes (`–`) anywhere in the post
