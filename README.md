@@ -30,24 +30,12 @@ Each skill lives in its own directory with a `SKILL.md`:
 
 ```
 skills/
-├── install.json      # Maps skills → agent workspace symlink targets
-├── install.sh        # Creates symlinks from install.json (optional)
 ├── skill-manager/    # Meta-skill for creating & managing skills
+│   └── SKILL.md
+├── blog-writer/
 │   └── SKILL.md
 └── ...
 ```
-
-## Symlink Install (Optional)
-
-If you run multiple agents and want skills symlinked into specific workspace directories, you can use the included `install.json` + `install.sh`:
-
-```bash
-# Edit install.json to set your agent workspace paths under "targets"
-# Then run:
-./install.sh
-```
-
-This is optional — `extraDirs` is the primary discovery mechanism.
 
 ## Adding Skills
 
