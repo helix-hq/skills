@@ -1,0 +1,9 @@
+{
+  "targets": {
+    "helix": "~/.openclaw/workspace/skills",
+    "agents": "~/.openclaw/workspace/.agents/skills"
+  },
+  "skills": {
+    "skill-manager": ["helix"]
+  }
+}
