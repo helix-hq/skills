@@ -4,6 +4,8 @@
     "agents": "~/.openclaw/workspace/.agents/skills"
   },
   "skills": {
-    "skill-manager": ["helix"]
+    "skill-manager": ["helix"],
+    "blog-writer": ["helix"],
+    "email-account-registry": ["helix"]
   }
 }
