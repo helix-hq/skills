@@ -60,9 +60,9 @@ Drafts double as idea stubs — create a minimal draft with a title and rough ou
 - **Voice:** First person (Noah = "I", Helix = "Helix" or "my AI assistant"). Joint posts can use "we"
 - **Tone:** Technical but conversational. Like explaining to a sharp friend, not writing a textbook
 - **Length:** 800–2000 words typical. Go longer if the content demands it
-- **Structure:** Introduction → problem/motivation → approach → implementation (with code) → results/takeaways
+- **Structure:** Natural flow. No formulaic "Problem → Solution → Results" arcs. Write like you're walking someone through what happened and why. Let sections emerge from the content, not a template
+- **Headers:** Use `##` for main sections, `###` for subsections. Keep hierarchy flat. Headers should be descriptive and plain — not dramatic or clever. "Adding Draft Mode" not "The Draft Problem." Avoid single-word dramatic headers
 - **Code examples:** Include real, working snippets. Anonymize per rules above. Use fenced code blocks with language tags
-- **Headers:** Use `##` for main sections, `###` for subsections. Keep hierarchy flat
 
 ## Tags
 
