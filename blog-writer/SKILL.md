@@ -115,3 +115,4 @@ Set `author` in frontmatter accordingly. Most posts will be `noah` with Helix as
 4. ☐ No PII leaks (grep for real paths, emails, IPs)
 5. ☐ Slug matches filename date and title
 6. ☐ No em dashes (`—`) or en dashes (`–`) anywhere in the post
+7. ☐ **Image/asset permissions:** Any files copied from `/tmp/`, inbound media, or other restrictive locations must be `chmod 644` (files) and `chmod 755` (directories) before committing. The blog builds into an nginx container, and files that are `600` (owner-only) will serve 403 Forbidden.
