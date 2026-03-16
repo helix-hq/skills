@@ -107,6 +107,30 @@ Set `author` in frontmatter accordingly. Most posts will be `noah` with Helix as
 - **Generating post content** → do directly, then hand the content to Ops for writing to disk
 - **ALWAYS rebuild the Docker container after any change.** The blog is static (no hot reload). After committing and pushing, Ops must run `cd ~/services/blog && docker compose up -d --build` or the changes will not be visible on the live site
 
+## TLDR Toggle
+
+Every post should include a TLDR toggle block between the frontmatter and the first paragraph. It uses paired Nunjucks shortcodes to render two views:
+
+```nunjucks
+{% tldrSlot "simple" %}
+One paragraph, plain English. Written for family, friends, and non-technical readers who want to know what cool thing was built and why it matters. No jargon, no bullet points, no structure. Just a friendly summary of the problem and what changed. Keep it to a single paragraph.
+{% endtldrSlot %}
+
+{% tldrSlot "tech" %}
+Structured summary for technical readers. Roughly **a tenth the length of the full article**. Use bolded keywords, bullet points, and clear sections. The Problem/Solution/Result pattern works well for infrastructure and ops posts, but use discretion based on the article type. The key principles:
+
+- Break into labeled sections (bolded headers like **Problem:**, **Solution:**, **Result:** or whatever fits)
+- One bullet per major topic/section of the article
+- Bold key terms and tool names
+- Skip the "lessons learned" / reflective sections
+- Keep it scannable: a reader should be able to visually grep the key points in seconds
+{% endtldrSlot %}
+
+{% tldrToggle %}{% endtldrToggle %}
+```
+
+The shortcodes render Markdown content via markdown-it, so bold, links, code, and lists all work inside the slots.
+
 ## Checklist (before handing to Ops)
 
 1. ☐ Frontmatter complete (title, date, author, excerpt, tags, draft)
@@ -115,4 +139,5 @@ Set `author` in frontmatter accordingly. Most posts will be `noah` with Helix as
 4. ☐ No PII leaks (grep for real paths, emails, IPs)
 5. ☐ Slug matches filename date and title
 6. ☐ No em dashes (`—`) or en dashes (`–`) anywhere in the post
-7. ☐ **Image/asset permissions:** Any files copied from `/tmp/`, inbound media, or other restrictive locations must be `chmod 644` (files) and `chmod 755` (directories) before committing. The blog builds into an nginx container, and files that are `600` (owner-only) will serve 403 Forbidden.
+7. ☐ TLDR toggle block present (simple + technical) between frontmatter and first paragraph
+8. ☐ **Image/asset permissions:** Any files copied from `/tmp/`, inbound media, or other restrictive locations must be `chmod 644` (files) and `chmod 755` (directories) before committing. The blog builds into an nginx container, and files that are `600` (owner-only) will serve 403 Forbidden.
