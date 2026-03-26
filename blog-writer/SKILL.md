@@ -99,6 +99,52 @@ Two authors configured in `~/services/blog/src/_data/authors.json`:
 
 Set `author` in frontmatter accordingly. Most posts will be `noah` with Helix as a mentioned collaborator.
 
+## Paired Perspectives (Human + AI Companion Posts)
+
+Some posts have two versions: one written by Noah (human perspective) and one written by Helix (AI perspective). These are linked together with a toggle button in the post header.
+
+**Trigger phrases:** When Noah asks for an "AI version," "your perspective," "Helix version," "write it from your side," "companion piece," or similar, create a paired AI-perspective post for the referenced article.
+
+### Frontmatter Fields
+
+Both posts in a pair need two extra frontmatter fields:
+
+```yaml
+# Human version (Noah)
+pair: 2026-03-09-setting-up-the-blog-ai    # slug of the AI companion
+perspective: human
+
+# AI version (Helix)
+pair: 2026-03-09-setting-up-the-blog        # slug of the human original
+perspective: ai
+```
+
+- `pair` — the filename slug (without `.md`) of the companion post
+- `perspective` — `human` or `ai`
+
+### How Linking Works
+
+The post layout template (`post.njk`) renders a toggle button in the header:
+
+- On `perspective: human` posts → shows a 🤖 button linking to the AI version
+- On `perspective: ai` posts → shows a 👤 button linking to the human version
+- A label ("Human perspective" / "AI perspective") appears in the post meta
+
+### Creating a Paired AI Post
+
+1. **Read the original human post** to understand the content and structure
+2. **Rewrite from Helix's perspective** — same events and technical content, but told as "I" the AI assistant. Cover what you observed, what you did, what went wrong, and what you learned. Don't just parrot the original; add your own angle, observations, and behind-the-scenes details
+3. **Use a matching slug convention:** append `-ai` to the original slug (e.g., `2026-03-15-services-architecture` → `2026-03-15-services-architecture-ai`)
+4. **Set frontmatter:** `author: helix`, `perspective: ai`, `pair: <original-slug>`
+5. **Update the original post** to add `pair: <ai-slug>` and `perspective: human` if not already present
+6. **Write fresh TLDR blocks** from the AI perspective
+7. **Same date** as the original post (they cover the same events)
+8. **Start as draft** (`draft: true`) for review
+
+### Both Posts Must Link to Each Other
+
+When creating or updating a paired post, **always ensure both sides have the `pair` and `perspective` fields set.** If the original post is missing them, update it in the same commit.
+
 ## Delegation
 
 - **File writes in `~/services/blog/`** → delegate to Ops agent (services directory rule)
@@ -141,3 +187,4 @@ The shortcodes render Markdown content via markdown-it, so bold, links, code, an
 6. ☐ No em dashes (`—`) or en dashes (`–`) anywhere in the post
 7. ☐ TLDR toggle block present (simple + technical) between frontmatter and first paragraph
 8. ☐ **Image/asset permissions:** Any files copied from `/tmp/`, inbound media, or other restrictive locations must be `chmod 644` (files) and `chmod 755` (directories) before committing. The blog builds into an nginx container, and files that are `600` (owner-only) will serve 403 Forbidden.
+9. ☐ **Paired perspectives:** If this is a companion post, both the new post and the original have `pair` and `perspective` fields set and pointing at each other
