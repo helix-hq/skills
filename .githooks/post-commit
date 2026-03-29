@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Re-link vendor skills after checkout
+REPO_DIR="$(git rev-parse --show-toplevel)"
+SCRIPT="$(dirname "$REPO_DIR")/link-vendors.sh"
+if [[ -x "$SCRIPT" ]]; then
+  "$SCRIPT" "$REPO_DIR"
+fi
