@@ -1,0 +1,3 @@
+[submodule "vendors/nextdns-skills"]
+	path = vendors/nextdns-skills
+	url = https://github.com/tuanductran/nextdns-skills.git
