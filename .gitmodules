@@ -1,3 +1,6 @@
 [submodule "vendors/nextdns-skills"]
 	path = vendors/nextdns-skills
 	url = https://github.com/tuanductran/nextdns-skills.git
+[submodule "vendors/openclaw-plane"]
+	path = vendors/openclaw-plane
+	url = https://github.com/jzakirov/openclaw-plane.git
